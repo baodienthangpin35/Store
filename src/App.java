@@ -1,10 +1,24 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        Product rice = new Product();
-        rice.code = 111111;
-        rice.name = "rice";
-        rice.data = "12-01-2021";
+        int key =1;
+        do{
+            System.out.println("0--Quit program\n1--Input data\n2--Output data");
+			System.out.println("Input operator: ");
+			key = Product.ip.nextInt();
+			switch(key)
+			{
+			case 1:
+				Product product = new Product();
+                product.InputInfoProduct(product);
+                Database.productlist.add(product);
+				break;
+			case 2:
+				for (Product i : Database.productlist)
+                System.out.println(i.toString());
+				break;
+			}
 
-        System.out.println(rice.toString());
+        }while(key!=0);
+
     }
 }
